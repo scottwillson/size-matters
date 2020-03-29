@@ -15,8 +15,16 @@ ActiveRecord::Schema.define(version: 2020_03_29_162701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answer_questions", force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "question_id"
+    t.index ["answer_id", "question_id"], name: "index_answer_questions_on_answer_id_and_question_id", unique: true
+    t.index ["answer_id"], name: "index_answer_questions_on_answer_id"
+    t.index ["question_id"], name: "index_answer_questions_on_question_id"
+  end
+
   create_table "answers", force: :cascade do |t|
-    t.string "text"
+    t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id"
@@ -24,11 +32,11 @@ ActiveRecord::Schema.define(version: 2020_03_29_162701) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "text"
-    t.bigint "answers_id"
+    t.string "text", null: false
+    t.bigint "answer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["answers_id"], name: "index_questions_on_answers_id"
+    t.index ["answer_id"], name: "index_questions_on_answer_id"
   end
 
 end

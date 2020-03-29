@@ -1,3 +1,5 @@
 class Question < ApplicationRecord
-  has_many :answers
+  belongs_to :answer, optional: true
+  has_many :answer_questions
+  has_many :answers, through: :answer_questions
 end
