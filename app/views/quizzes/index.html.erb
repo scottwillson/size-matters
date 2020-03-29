@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="question col-sm-4">
+    <h2>Question</h2>
+    0.5" wide crack upper body size
+  </div>
+  <div class="answer col-sm-4">
+    <%= bootstrap_form_tag do |f| %>
+      <%= f.collection_radio_buttons :answer, @answers, :id, :text %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

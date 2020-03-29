@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SizeMatters</title>
+    <title>Size Matters</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h1 class="my-0 mr-md-auto"><%= link_to "Size Matters", root_path %></h1>
+    </div>
+
+    <div class="container">
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom border-top mt-4">
+      <div>
+        <%= link_to "Home", root_path, class: "p-2" %>
+      </div>
+    </nav>
   </body>
 </html>
