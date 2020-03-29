@@ -1,11 +1,11 @@
 Question.destroy_all
 Answer.destroy_all
 
-nothing = Answer.create!(text: "Nothing")
-fingers = Answer.create!(text: "Fingers")
-hands = Answer.create!(text: "Hands")
-fists = Answer.create!(text: "Fists")
-off_width = Answer.create!(text: "Off-width")
+nothing = Answer.create!(text: "Nothing", position: 0)
+fingers = Answer.create!(text: "Fingers", position: 1)
+hands = Answer.create!(text: "Hands", position: 2)
+fists = Answer.create!(text: "Fists", position: 3)
+off_width = Answer.create!(text: "Off-width", position: 4)
 
 answers = [
   nothing,

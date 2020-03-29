@@ -4,7 +4,7 @@
       <%= @question.text %>
     </div>
     <div class="answer col-sm-6">
-      <% @question.answers.shuffle.each do |answer| %>
+      <% @question.answers.sort_by(&:position).each do |answer| %>
         <%= link_to(
               answer.text,
               question_quiz_answers_path(
