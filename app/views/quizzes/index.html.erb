@@ -6,7 +6,17 @@
     </div>
     <div class="answer col-sm-6">
       <h2>Answer</h2>
-        <%= f.collection_radio_buttons :answer_id, @question.answers, :id, :text, hide_label: true %>
+        <% @question.answers.shuffle.each do |answer| %>
+          <%= link_to(
+                answer.text,
+                question_quiz_answers_path(
+                    @question,
+                    quiz_answer: {answer_id: answer}
+                  ),
+                  method: :post,
+                  class: "btn btn-block btn-outline-primary text-left"
+          ) %>
+        <% end %>
     </div>
   </div>
 
