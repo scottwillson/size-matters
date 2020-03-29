@@ -1,26 +1,24 @@
 <%= bootstrap_form_for(QuizAnswer.new(question: @question), url: question_quiz_answers_path(@question)) do |f| %>
   <div class="row">
-    <div class="question col-sm-6">
-      <h2>Question</h2>
+    <div class="question col-sm-6 mb-3">
       <%= @question.text %>
     </div>
     <div class="answer col-sm-6">
-      <h2>Answer</h2>
-        <% @question.answers.shuffle.each do |answer| %>
-          <%= link_to(
-                answer.text,
-                question_quiz_answers_path(
-                    @question,
-                    quiz_answer: {answer_id: answer}
-                  ),
-                  method: :post,
-                  class: "btn btn-block btn-outline-primary text-left"
-          ) %>
-        <% end %>
+      <% @question.answers.shuffle.each do |answer| %>
+        <%= link_to(
+              answer.text,
+              question_quiz_answers_path(
+                  @question,
+                  quiz_answer: {answer_id: answer}
+                ),
+                method: :post,
+                class: "btn btn-block btn-outline-primary text-left"
+        ) %>
+      <% end %>
     </div>
   </div>
 
-  <div class="row fixed-bottom m-3">
+  <div class="row fixed-bottom mb-3 ml-1 mr-1">
     <div class="question col-sm-12">
       <%= f.submit "Answer", class: "btn btn-primary btn-block" %>
     </div>

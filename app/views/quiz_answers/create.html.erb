@@ -1,29 +1,28 @@
 <div class="row">
-  <div class="question col-sm-4">
-    <h2>Question</h2>
+  <div class="question col-sm-6">
     <%= @question.text %>
   </div>
-  <div class="answer col-sm-4">
-    <h2>Your Answer</h2>
-    <%= @answer.text %>
-  </div>
-  <div class="answer col-sm-4">
-    <h2>Correct Answer</h2>
-    <%= @question.answer.text %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="question col-sm-12 mt-3 d-flex justify-content-center">
+  <div class="question col-sm-6 mt-3 d-flex justify-content-center">
     <% if @answer == @question.answer %>
-      <i class="fas fa-thumbs-up correct"></i>
+      <div class="card text-white bg-success mb-3 text-center w-100 correct">
+        <div class="card-body">
+          <h5 class="card-title"><%= @answer.text %></h5>
+          <p class="card-text"><i class="fas fa-thumbs-up"></i></p>
+        </div>
+      </div>
     <% else %>
-    <i class="fas fa-thumbs-down wrong"></i>
+    <div class="card text-white bg-danger mb-3 text-center w-100 wrong">
+      <div class="card-body">
+        <h5 class="card-title"><%= @question.answer.text %></h5>
+        <p class="card-text answer-text"><%= @answer.text %></p>
+        <p class="card-text"><i class="fas fa-thumbs-down"></i></p>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
 
-<div class="row fixed-bottom m-3">
+<div class="row fixed-bottom mb-3 ml-1 mr-1">
   <div class="question col-sm-12">
     <%= link_to "Next", root_path, class: "btn btn-primary btn-block" %>
   </div>

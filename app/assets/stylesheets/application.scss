@@ -17,12 +17,11 @@ h1 {
   font-weight: 900;
 }
 
-i.correct {
-  color: $success;
-  font-size: 48px;
+.correct i, .wrong i {
+  color: $white;
+  font-size: 96px;
 }
 
-i.wrong {
-  color: $danger;
-  font-size: 48px;
+.wrong .card-text {
+  text-decoration: line-through;
 }
