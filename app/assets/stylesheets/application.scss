@@ -16,3 +16,13 @@ h1 {
   color: $primary;
   font-weight: 900;
 }
+
+i.correct {
+  color: $success;
+  font-size: 48px;
+}
+
+i.wrong {
+  color: $danger;
+  font-size: 48px;
+}

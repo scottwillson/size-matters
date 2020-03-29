@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="question col-sm-4">
+    <h2>Question</h2>
+    <%= @question.text %>
+  </div>
+  <div class="answer col-sm-4">
+    <h2>Your Answer</h2>
+    <%= @answer.text %>
+  </div>
+  <div class="answer col-sm-4">
+    <h2>Correct Answer</h2>
+    <%= @question.answer.text %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="question col-sm-12 mt-3 d-flex justify-content-center">
+    <% if @answer == @question.answer %>
+      <i class="fas fa-thumbs-up correct"></i>
+    <% else %>
+    <i class="fas fa-thumbs-down wrong"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="row fixed-bottom m-3">
+  <div class="question col-sm-12">
+    <%= link_to "Next", root_path, class: "btn btn-primary btn-block" %>
+  </div>
+</div>

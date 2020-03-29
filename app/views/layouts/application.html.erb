@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://kit.fontawesome.com/b3a9dc64a8.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,11 +27,5 @@
 
       <%= yield %>
     </div>
-
-    <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom border-top mt-4">
-      <div>
-        <%= link_to "Home", root_path, class: "p-2" %>
-      </div>
-    </nav>
   </body>
 </html>
