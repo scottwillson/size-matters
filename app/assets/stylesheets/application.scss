@@ -17,8 +17,13 @@ h1 {
   font-weight: 900;
 }
 
-.correct i, .wrong i {
+.correct i {
   color: $white;
+  font-size: 96px;
+}
+
+.wrong i {
+  color: $secondary;
   font-size: 96px;
 }
 

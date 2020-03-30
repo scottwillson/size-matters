@@ -12,11 +12,11 @@
         </div>
       </div>
     <% else %>
-      <div class="card text-white bg-danger mb-3 text-center w-100 wrong">
+      <div class="card text-secondary border-info mb-3 text-center w-100 wrong">
         <div class="card-body">
           <h5 class="card-title"><%= @question.answers.sort_by(&:position).map(&:text).join(", ") %></h5>
           <p class="card-text answer-text"><%= @answers.sort_by(&:position).map(&:text).join(", ") %></p>
-          <p class="card-text"><i class="fas fa-thumbs-down"></i></p>
+          <p class="card-text"><i class="fas fa-redo"></i></p>
           <%= link_to "",root_path, class: "stretched-link" %>
         </div>
       </div>
