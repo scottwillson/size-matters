@@ -171,3 +171,37 @@ q.answers << fist_jam
 q = Question.create!(text: "Off-Width")
 q.choices = widths
 q.answers << off_width
+
+smearing = Choice.create!(text: "0\"-4.0\"", position: 0)
+toe_jam = Choice.create!(text: "0.5\"-2.5\"", position: 1)
+foot_jam = Choice.create!(text: "2.5\"-4.75\"", position: 2)
+knee_jam = Choice.create!(text: "4.5\"-6.0\"", position: 3)
+foot_bridge = Choice.create!(text: "6.0\"+", position: 4)
+
+widths = [
+  smearing,
+  toe_jam,
+  foot_jam,
+  knee_jam,
+  foot_bridge
+]
+
+q = Question.create!(text: "Foot smearing")
+q.choices = widths
+q.answers << smearing
+
+q = Question.create!(text: "Toe jam")
+q.choices = widths
+q.answers << toe_jam
+
+q = Question.create!(text: "Foot jam")
+q.choices = widths
+q.answers << foot_jam
+
+q = Question.create!(text: "Knee jam")
+q.choices = widths
+q.answers << knee_jam
+
+q = Question.create!(text: "Torqued foot bridge")
+q.choices = widths
+q.answers << foot_bridge
