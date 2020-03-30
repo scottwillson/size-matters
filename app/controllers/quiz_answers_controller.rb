@@ -1,4 +1,8 @@
 class QuizAnswersController < ApplicationController
+  def index
+    redirect_to root_path
+  end
+
   def create
     @answers = Choice.find(quiz_answer_params[:choice_id].reject(&:blank?))
     @question = Question.find(params[:question_id])
