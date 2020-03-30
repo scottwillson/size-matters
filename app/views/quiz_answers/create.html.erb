@@ -3,7 +3,7 @@
     <%= @question.text %>
   </div>
   <div class="question col-sm-6 mt-3 d-flex justify-content-center">
-    <% if @answers == @question.answers %>
+    <% if @answers.sort_by(&:id) == @question.answers.sort_by(&:id) %>
       <div class="card text-white bg-success mb-3 text-center w-100 correct">
         <div class="card-body">
           <h5 class="card-title"><%= @answers.sort_by(&:position).map(&:text).join(", ") %></h5>

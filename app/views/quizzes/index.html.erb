@@ -4,16 +4,20 @@
       <%= @question.text %>
     </div>
     <div class="answer col-sm-6">
-      <% @question.choices.sort_by(&:position).each do |choice| %>
-        <%= link_to(
-              choice.text,
-              question_quiz_answers_path(
-                  @question,
-                  quiz_answer: {answer_id: [choice]}
-                ),
-                method: :post,
-                class: "btn btn-block btn-outline-primary text-left"
-        ) %>
+      <% if @question.answers.one? %>
+        <% @question.choices.sort_by(&:position).each do |choice| %>
+          <%= link_to(
+                choice.text,
+                question_quiz_answers_path(
+                    @question,
+                    quiz_answer: {choice_id: [choice]}
+                  ),
+                  method: :post,
+                  class: "btn btn-block btn-outline-primary text-left"
+          ) %>
+        <% end %>
+      <% else %>
+        <%= f.collection_check_boxes :choice_id, @question.choices.sort_by(&:position), :id, :text, label: false %>
       <% end %>
     </div>
   </div>
