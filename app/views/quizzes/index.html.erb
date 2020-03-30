@@ -4,12 +4,12 @@
       <%= @question.text %>
     </div>
     <div class="answer col-sm-6">
-      <% @question.answers.sort_by(&:position).each do |answer| %>
+      <% @question.choices.sort_by(&:position).each do |choice| %>
         <%= link_to(
-              answer.text,
+              choice.text,
               question_quiz_answers_path(
                   @question,
-                  quiz_answer: {answer_id: answer}
+                  quiz_answer: {answer_id: [choice]}
                 ),
                 method: :post,
                 class: "btn btn-block btn-outline-primary text-left"

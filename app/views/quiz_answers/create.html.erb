@@ -3,21 +3,23 @@
     <%= @question.text %>
   </div>
   <div class="question col-sm-6 mt-3 d-flex justify-content-center">
-    <% if @answer == @question.answer %>
+    <% if @answers == @question.answers %>
       <div class="card text-white bg-success mb-3 text-center w-100 correct">
         <div class="card-body">
-          <h5 class="card-title"><%= @answer.text %></h5>
+          <h5 class="card-title"><%= @answers.sort_by(&:position).map(&:text).join(", ") %></h5>
           <p class="card-text"><i class="fas fa-thumbs-up"></i></p>
+          <%= link_to "", root_path, class: "stretched-link" %>
         </div>
       </div>
     <% else %>
-    <div class="card text-white bg-danger mb-3 text-center w-100 wrong">
-      <div class="card-body">
-        <h5 class="card-title"><%= @question.answer.text %></h5>
-        <p class="card-text answer-text"><%= @answer.text %></p>
-        <p class="card-text"><i class="fas fa-thumbs-down"></i></p>
+      <div class="card text-white bg-danger mb-3 text-center w-100 wrong">
+        <div class="card-body">
+          <h5 class="card-title"><%= @question.answers.sort_by(&:position).map(&:text).join(", ") %></h5>
+          <p class="card-text answer-text"><%= @answers.sort_by(&:position).map(&:text).join(", ") %></p>
+          <p class="card-text"><i class="fas fa-thumbs-down"></i></p>
+          <%= link_to "",root_path, class: "stretched-link" %>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>

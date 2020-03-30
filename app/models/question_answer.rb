@@ -1,5 +1,5 @@
-class AnswerQuestion < ApplicationRecord
-  belongs_to :answer
+class QuestionAnswer < ApplicationRecord
+  belongs_to :answer, class_name: "Choice"
   belongs_to :question
 
   validates :answer, presence: true

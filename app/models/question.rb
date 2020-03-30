@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
-  belongs_to :answer, optional: true
-  has_many :answer_questions
-  has_many :answers, through: :answer_questions
-  has_many :quiz_answers
+  has_many :question_answers, class_name: "QuestionAnswer"
+  has_many :question_choices
+  has_many :answers, through: :question_answers, class_name: "Choice"
+  has_many :choices, through: :question_choices
 end

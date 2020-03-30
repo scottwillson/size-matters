@@ -1,4 +1,4 @@
 class QuizAnswer < ApplicationRecord
-  belongs_to :answer
+  belongs_to :choice
   belongs_to :question
 end

@@ -1,13 +1,13 @@
 Question.destroy_all
-Answer.destroy_all
+Choice.destroy_all
 
-nothing = Answer.create!(text: "Nothing", position: 0)
-fingers = Answer.create!(text: "Fingers", position: 1)
-hands = Answer.create!(text: "Hands", position: 2)
-fists = Answer.create!(text: "Fists", position: 3)
-off_width = Answer.create!(text: "Off-width", position: 4)
+nothing = Choice.create!(text: "Nothing", position: 0)
+fingers = Choice.create!(text: "Fingers", position: 1)
+hands = Choice.create!(text: "Hands", position: 2)
+fists = Choice.create!(text: "Fists", position: 3)
+off_width = Choice.create!(text: "Off-width", position: 4)
 
-answers = [
+choices = [
   nothing,
   fingers,
   hands,
@@ -18,47 +18,86 @@ answers = [
 ((0.0)..(0.45)).step(0.05).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = nothing
-  q.save!
+  choices.each { |a| q.choices << a }
+  q.answers << nothing
 end
 
 ((0.50)..(1.30)).step(0.05).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = fingers
+  choices.each { |a| q.choices << a }
+  q.answers << fingers
   q.save!
 end
 
 ((1.35)..(2.45)).step(0.05).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = hands
+  choices.each { |a| q.choices << a }
+  q.answers << hands
   q.save!
 end
 
 ((2.5)..(3.7)).step(0.05).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = fists
+  choices.each { |a| q.choices << a }
+  q.answers << fists
   q.save!
 end
 
 ((3.75)..(4)).step(0.05).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = off_width
+  choices.each { |a| q.choices << a }
+  q.answers << off_width
   q.save!
 end
 
 (5..12).each do |size|
   size = size.round(2)
   q = Question.create!(text: "#{size}\" wide crack upper body part size")
-  answers.each { |a| q.answers << a }
-  q.answer = off_width
+  choices.each { |a| q.choices << a }
+  q.answers << off_width
+  q.save!
+end
+
+nothing = Choice.create!(text: "Nothing", position: 0)
+pinkie = Choice.create!(text: "Pinkie finger", position: 1)
+index = Choice.create!(text: "Index finger", position: 2)
+middle = Choice.create!(text: "Middle finger", position: 3)
+ring_lock = Choice.create!(text: "Ring lock/finger lock", position: 4)
+hand_jam = Choice.create!(text: "Hand jam", position: 5)
+hand_cup = Choice.create!(text: "Hand cup", position: 6)
+fist_jam = Choice.create!(text: "Fist jam", position: 7)
+hand_stack = Choice.create!(text: "Hand stack", position: 8)
+forearm_bar = Choice.create!(text: "Forearm bar", position: 9)
+
+choices = [
+  nothing,
+  pinkie,
+  index,
+  middle,
+  ring_lock,
+  hand_jam,
+  hand_cup,
+  fist_jam,
+  hand_stack,
+  forearm_bar
+]
+
+((0.0)..(0.45)).step(0.05).each do |size|
+  size = size.round(2)
+  q = Question.create!(text: "#{size}\" wide crack upper body jams")
+  choices.each { |a| q.choices << a }
+  q.answers << nothing
+end
+
+((0.50)..(0.70)).step(0.05).each do |size|
+  size = size.round(2)
+  q = Question.create!(text: "#{size}\" wide crack upper body jams")
+  choices.each { |a| q.choices << a }
+  q.answers << pinkie
+  q.answers << index
   q.save!
 end

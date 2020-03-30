@@ -10,42 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_235058) do
+ActiveRecord::Schema.define(version: 2020_03_30_001016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answer_questions", force: :cascade do |t|
-    t.bigint "answer_id"
-    t.bigint "question_id"
-    t.index ["answer_id", "question_id"], name: "index_answer_questions_on_answer_id_and_question_id", unique: true
-    t.index ["answer_id"], name: "index_answer_questions_on_answer_id"
-    t.index ["question_id"], name: "index_answer_questions_on_question_id"
-  end
-
-  create_table "answers", force: :cascade do |t|
+  create_table "choices", force: :cascade do |t|
     t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id"
     t.integer "position", default: 0, null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_choices_on_question_id"
+  end
+
+  create_table "question_answers", force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "question_id"
+    t.index ["answer_id", "question_id"], name: "index_question_answers_on_answer_id_and_question_id", unique: true
+    t.index ["answer_id"], name: "index_question_answers_on_answer_id"
+    t.index ["question_id"], name: "index_question_answers_on_question_id"
+  end
+
+  create_table "question_choices", force: :cascade do |t|
+    t.bigint "choice_id"
+    t.bigint "question_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["choice_id", "question_id"], name: "index_question_choices_on_choice_id_and_question_id", unique: true
+    t.index ["choice_id"], name: "index_question_choices_on_choice_id"
+    t.index ["question_id"], name: "index_question_choices_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "text", null: false
-    t.bigint "answer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["answer_id"], name: "index_questions_on_answer_id"
   end
 
   create_table "quiz_answers", force: :cascade do |t|
-    t.bigint "answer_id"
+    t.bigint "choice_id"
     t.bigint "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["answer_id"], name: "index_quiz_answers_on_answer_id"
+    t.index ["choice_id"], name: "index_quiz_answers_on_choice_id"
     t.index ["question_id"], name: "index_quiz_answers_on_question_id"
   end
 
