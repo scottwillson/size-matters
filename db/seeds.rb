@@ -464,43 +464,43 @@ q = Question.create!(text: "#6 C4")
 q.choices = cams
 q.answers << green
 
-q = Question.create!(text: "0.5\"-0.9\"")
+q = Question.create!(text: "0.5\"-0.9\" crack size C4")
 q.choices = cams
 q.answers << blue
 
-q = Question.create!(text: "0.6\"-1.0\"")
+q = Question.create!(text: "0.6\"-1.0\" crack size C4")
 q.choices = cams
 q.answers << gray
 
-q = Question.create!(text: "0.8\"-1.3\"")
+q = Question.create!(text: "0.8\"-1.3\" crack size C4")
 q.choices = cams
 q.answers << purple
 
-q = Question.create!(text: "0.9\"-1.6\"")
+q = Question.create!(text: "0.9\"-1.6\" crack size C4")
 q.choices = cams
 q.answers << green
 
-q = Question.create!(text: "1.2\"-2.0\"")
+q = Question.create!(text: "1.2\"-2.0\" crack size C4")
 q.choices = cams
 q.answers << red
 
-q = Question.create!(text: "1.4\"-2.6\"")
+q = Question.create!(text: "1.4\"-2.6\" crack size C4")
 q.choices = cams
 q.answers << gold
 
-q = Question.create!(text: "2.0\"-3.4\"")
+q = Question.create!(text: "2.0\"-3.4\" crack size C4")
 q.choices = cams
 q.answers << blue
 
-q = Question.create!(text: "2.6\"-4.5\"")
+q = Question.create!(text: "2.6\"-4.5\" crack size")
 q.choices = cams
 q.answers << gray
 
-q = Question.create!(text: "3.4\"-5.6\"")
+q = Question.create!(text: "3.4\"-5.6\" crack size")
 q.choices = cams
 q.answers << purple
 
-q = Question.create!(text: "4.5\"-7.7\"")
+q = Question.create!(text: "4.5\"-7.7\" crack size")
 q.choices = cams
 q.answers << green
 
