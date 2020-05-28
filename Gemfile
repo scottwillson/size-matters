@@ -5,7 +5,7 @@ ruby '2.7.1'
 
 gem "bootstrap"
 gem "bootstrap_form"
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '~> 6.0', '>= 6.0.2.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
